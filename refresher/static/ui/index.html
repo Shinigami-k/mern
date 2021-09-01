@@ -1,0 +1,38 @@
+<html>
+    <h1>
+        DARE TO QUIZ?
+    </h1>
+    <body>
+        <div class = "quiz">
+            <div class = "question">
+                <h3></h3>
+                <div class = "options">
+
+                </div>
+            </div>
+        </div>
+        <script src="../js/myscripts.js">
+            var quizdiv = document.getElementById('quiz');
+            var questions = getQuestions(); // map of questions   
+
+            for (let [key, value] of questions) {
+                var div = document.createElement('div');
+
+                var heading = document.createElement('h5');
+                heading.innerHTML  = key;
+                div.append(heading);
+
+                var ul = document.createElement('ul');
+                
+                for(let option in value) {
+                    var li = document.createElement('li');
+                    li.innerHTML = option;
+                    li.setAttribute('style', 'display: block;');
+                    ul.append(li);
+                }
+                div.append(ul);
+                console.log(key + " = " + value);
+            }
+        </script>
+    </body>
+</html>
