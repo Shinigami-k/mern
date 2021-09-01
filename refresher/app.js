@@ -32,6 +32,10 @@ app.get('/home/home.js', (req, res)=> {
     res.sendFile(path.join(__dirname, '/static/js/home.js'));
 });
 
+app.get('/images/quiz.png', (req, res)=> {
+    res.sendFile(path.join(__dirname, '/static/images/quiz.png'));
+});
+
 app.listen(5000, function () {
     console.log('Node server is running..');
 });

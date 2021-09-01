@@ -4,12 +4,11 @@
         <!-- <link rel="stylesheet" type="text/css" href="../css/style.css" /> -->
         <style>
             /* input:hover {background: rgb(206, 52, 52);} */
-            input {
+            .options {
                 box-shadow:inset 0px 1px 0px 0px #dcecfb;
                 height: 50px;
                 width: 280px;
                 background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-                background-color:#bddbfa;
                 border-radius:6px;
                 border:1px solid #84bbf3;
                 display:inline-block;
@@ -22,37 +21,43 @@
                 text-decoration:none;
                 text-shadow:0px 1px 0px #528ecc;
             }
-            input:hover {
+            .options:hover {
                 background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
                 background-color:#80b5ea;
             }
-            input:active {
+            .options:active {
                 position:relative;
                 top:1px;
             }
         </style>
     </head>
-    <h1>
-        DARE TO QUIZ?
-    </h1>
     <body>
         <script type = "module" src="/static/js/home.js"></script>
-        <div>
-            <h2>
-                SELECT A CATEGORY:
-            </h2>
-            <select name="category" id="category">
-                <option value="9">General Knowledge</option>
-                <option value="21">Sports</option>
-                <option value="23">History</option>
-                <option value="28">Vehicles</option>
-            </select>
-            <br><br>
-            <button id = 'submitChoice'>Submit</button>
-              
-        </div>
-        <div id = "quizEntry">
+        <div class="headingDiv" style='text-align: center;margin-top: 0%;height: 30%;width: 100%;position: absolute;'>
 
+            <img src='/static/images/quiz.png' width="100%" height="100%" style="top: 0%;position: relative;" >
+            <h1 style='left: 30%;top: 20%;position: absolute;color: white;font-size: 100px'>
+                    DARE TO QUIZ?
+            </h1>
+        </div>
+        <div style="position: absolute;top: 35%;">
+                <div >
+                    <h2>
+                        CATEGORY:
+                    </h2>
+                    <select name="category" id="category">
+                        <option value="9">General Knowledge</option>
+                        <option value="21">Sports</option>
+                        <option value="23">History</option>
+                        <option value="28">Vehicles</option>
+                    </select>
+                        <br><br>
+                    <button class = "options" id = 'submitChoice'>Submit</button>
+                    
+                </div>
+                <div id = "quizEntry" >
+    
+                </div>
         </div>
     </body>
 </html>

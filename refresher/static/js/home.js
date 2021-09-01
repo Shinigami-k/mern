@@ -33,7 +33,7 @@ const getQuestionsForChoice = () => {
         let correct_answer = q.correct_answer;
         incorrect_ans.push(correct_answer);
         choice.set(i,incorrect_ans);
-        ans.set(i,correct_answer);
+        ans.set(i+"",correct_answer);
         i++;
       }
       //window.location.href = "/quiz";
@@ -46,26 +46,28 @@ const populateQuiz = () => {
   let quizEntry = document.getElementById('quizEntry');
   let q = 1;
   for (let pair of questions) {
-      var [i, question] = pair;
-      var quizdiv = document.createElement('div');
-      var heading = document.createElement('h3');
+      let [i, question] = pair;
+      let quizdiv = document.createElement('div');
+      let heading = document.createElement('h3');
       heading.innerHTML = "Que "+q+". "+question;
       quizdiv.append(heading);
 
-      var ul = document.createElement('ul');
-      var op = 1;
+      let ul = document.createElement('ul');
+      let op = 1;
       for(let option of choice.get(i)) {
-          var li = document.createElement('li');
-          var btn = document.createElement('input');
+          let li = document.createElement('li');
+          let btn = document.createElement('input');
           btn.type = "button";
-          btn.id = q;
           btn.value = option; 
-          btn.style.backgroundColor = "##ADD8E6";
-          btn.onclick = function () { 
-              if(btn.value == ans.get(btn.id)) {
-                btn.style.backgroundColor = "#008000";
+          btn.classList.add('options');
+          btn.style.backgroundColor =  "#bddbfa";
+          let localQ  = q+"";
+          btn.id = localQ+"_"+op;
+          btn.onclick = () => { 
+              if(btn.value == ans.get(localQ)) {
+                btn.style.backgroundColor = "#90EE90";
               } else {
-                btn.style.backgroundColor = "##FF0000";
+                btn.style.backgroundColor = "#FF0000";
               }
           };
           li.append(btn);
