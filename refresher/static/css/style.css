@@ -1,7 +1,8 @@
 .options {
 	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	height: 50px;
+	width: 280px;
 	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-	background-color:#bddbfa;
 	border-radius:6px;
 	border:1px solid #84bbf3;
 	display:inline-block;
@@ -19,6 +20,60 @@
 	background-color:#80b5ea;
 }
 .options:active {
+	position:relative;
+	top:1px;
+}
+
+.redButton {
+	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	height: 50px;
+	width: 280px;
+	background-color: red;
+	background:linear-gradient(to bottom, #f81302 5%, #eccbcb 100%);
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+.redButton:hover {
+	background:linear-gradient(to bottom, #f19191 5%, #eec7c3 100%);
+	background-color:#f75f5f;
+}
+.redButton:active {
+	position:relative;
+	top:1px;
+}
+
+.greenButton {
+	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	height: 50px;
+	width: 280px;
+	background-color: green;
+	background:linear-gradient(to bottom, green 5%, #e1f7e7 100%);
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+.greenButton:hover {
+	background:linear-gradient(to bottom, #a4db96 5%, #cbe6c5 100%);
+	background-color:#a4db96;
+}
+.greenButton:active {
 	position:relative;
 	top:1px;
 }

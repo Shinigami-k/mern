@@ -36,6 +36,10 @@ app.get('/images/quiz.png', (req, res)=> {
     res.sendFile(path.join(__dirname, '/static/images/quiz.png'));
 });
 
+app.get('/static/css/style.css', (req, res)=> {
+    res.sendFile(path.join(__dirname, '/static/css/style.css'));
+});
+
 app.listen(5000, function () {
     console.log('Node server is running..');
 });

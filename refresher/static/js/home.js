@@ -1,4 +1,6 @@
 "use strict"
+import {geoLocation,geo_eng,geo_italian} from '/static/js/utils.js';
+
 const questions = new Map(); 
 const choice = new Map();
 const ans = new Map();
@@ -10,6 +12,7 @@ if(submit_btn) {
     getQuestionsForChoice();
   });
 }
+
 
 const getQuestionsForChoice = () => {
   const select = document.getElementById('category');
@@ -65,9 +68,11 @@ const populateQuiz = () => {
           btn.id = localQ+"_"+op;
           btn.onclick = () => { 
               if(btn.value == ans.get(localQ)) {
-                btn.style.backgroundColor = "#90EE90";
+                btn.className = 'greenButton';
+                //btn.style.backgroundColor = "#90EE90";
               } else {
-                btn.style.backgroundColor = "#FF0000";
+                btn.className = 'redButton';
+                //btn.style.backgroundColor = "#FF0000";
               }
           };
           li.append(btn);
@@ -79,5 +84,7 @@ const populateQuiz = () => {
       quizEntry.append(quizdiv);
       q++;
   }
+   geoLocation.call(geo_eng,"Hello","Komal");
+   geoLocation.apply(geo_italian,["Ciao","Komal"]);
 }
 
