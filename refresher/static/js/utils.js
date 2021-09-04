@@ -36,3 +36,36 @@ const getGeoLoc = () => {
         });
     });
 }
+
+export const splitFullName = (fullName) => {
+    let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    let nameArr = fullName.trim().split(/\s+/);
+    let firstName = nameArr[0];
+    let lastName = "";
+    if(nameArr.length>1) {
+        lastName = nameArr[nameArr.length-1];
+    }
+    if(nameArr.includes('Komal')) {
+        console.log('The name contains "Komal"');
+    }
+    let midNameArr = [];
+    let midName = "";
+    if(nameArr.length>2) {
+        midNameArr = nameArr.spice(1,nameArr.length-2);
+    }
+
+    
+    for(let name of midNameArr) {
+        if(midName.length == 0) {
+            midName = name;
+        } else {
+            midName += " "+name;
+        }
+    }
+    let nameAns = JSON.stringify({
+        fName: firstName,
+        mName: midName,
+        lName: lastName
+    });
+    return nameAns;
+}

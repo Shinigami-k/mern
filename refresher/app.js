@@ -15,7 +15,6 @@ app.get('/', function (req, res) {
 
 app.get('/getQuestions/:choice', function (req, res) {
     let data;
-    console.log('i am getquestions');
     axios.get('https://opentdb.com/api.php?amount=10&category='+req.params.choice+'&type=multiple')
     .then((response) => {
         console.log(response.data);

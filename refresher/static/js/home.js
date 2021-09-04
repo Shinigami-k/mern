@@ -1,5 +1,5 @@
 "use strict"
-import {geoLocation,geo_eng,geo_italian} from '/static/js/utils.js';
+import {geoLocation,geo_eng,geo_italian,splitFullName} from '/static/js/utils.js';
 
 const questions = new Map(); 
 const choice = new Map();
@@ -15,6 +15,15 @@ if(submit_btn) {
 
 
 const getQuestionsForChoice = () => {
+  const form = document.getElementById('initDet');
+  if(!form.email.checkValidity() || !form.fullname.checkValidity()) {
+    return;
+  }
+  localStorage.setItem('fullname', form.fullname.value);
+  localStorage.setItem('fname', form.fname.value);
+  localStorage.setItem('mname', form.mname.value);
+  localStorage.setItem('lname', form.lname.value);
+  sessionStorage.setItem('email', form.email.value);
   const select = document.getElementById('category');
   const choice_val = select.options[select.selectedIndex].value;
   const text = select.options[select.selectedIndex].text;
@@ -84,7 +93,35 @@ const populateQuiz = () => {
       quizEntry.append(quizdiv);
       q++;
   }
-   geoLocation.call(geo_eng,"Hello","Komal");
-   geoLocation.apply(geo_italian,["Ciao","Komal"]);
+  let greetArray = ['Hello',localStorage.getItem('fname')];
+  let {greeting,uname} = greetArray;//array destructuring
+  geoLocation.call(geo_eng,greeting,uname);
+  geoLocation.apply(geo_italian,...greetArray); //spread operator
+  geoLocation.apply(geo_italian,["Ciao","Komal"]);
+  
+}
+
+const fntxt = document.getElementById("fullname");
+fntxt.addEventListener("keyup", (e) => {
+  populateNameAsSections(fntxt.value);
+});
+
+const populateNameAsSections = (fullName) => {
+  let nameString = splitFullName(fullName);
+  let nameJson = JSON.parse(nameString);
+  console.log('format of nameString is: '+typeof(nameString));
+  console.log('format of nameJson is: '+typeof(nameJson));
+
+  let {fname,mname,lname} = nameJson; //object destructuring
+  const fName = document.getElementById('fname');
+  fName.value = fname;
+  const mName = document.getElementById('mname');
+  mName.value = mname;
+  const lName = document.getElementById('lname');
+  lName.value = lname;
+}
+
+const showNameInConsole = (...allnames) => {
+  console.log(allnames);
 }
 

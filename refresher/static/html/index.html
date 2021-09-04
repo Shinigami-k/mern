@@ -17,15 +17,35 @@
                     <h2>
                         CATEGORY:
                     </h2>
-                    <select name="category" id="category">
-                        <option value="9">General Knowledge</option>
-                        <option value="21">Sports</option>
-                        <option value="23">History</option>
-                        <option value="28">Vehicles</option>
-                    </select>
-                        <br><br>
-                    <button class = "options" id = 'submitChoice'>Submit</button>
-                    
+                    <form id = "initDet" onSubmit="return false;" autocomplete="off">
+                        <label for="fullname">Full Name:</label><br>
+                        <input type="text" autocomplete="off" id="fullname" name="fullname" required pattern="([A-Za-z]+(\\s)?)+ {4-40}" title="Username should only contain english alphabets. Max length is 40." autofocus><br><br>
+                        First Name: <input type="text" name="fname" id="fname" readonly>
+                        Middle Name: <input type="text" name="mname" id="mname" readonly>
+                        Last Name: <input type="text" name="lname" id="lname" readonly><br><br>
+                        <label for="email">Email:</label><br>
+                        <input type="email" autocomplete="off" id="email" name="email" title="Email should be of the format {username}@{domain}.com"><br><br>
+                        <script type="text/javascript"> 
+                            let name = localStorage.getItem('fullname') == null ? '':localStorage.getItem('fullname');
+                            let fname = localStorage.getItem('fname') == null ? '':localStorage.getItem('fname');
+                            let mname = localStorage.getItem('mname') == null ? '':localStorage.getItem('mname');
+                            let lname = localStorage.getItem('lname') == null ? '':localStorage.getItem('lname');
+                            let email = sessionStorage.getItem('email') == null ? '':sessionStorage.getItem('email');
+                            document.getElementById("fullname").setAttribute('value',name);
+                            document.getElementById("email").setAttribute('value',email);
+                            document.getElementById("fname").setAttribute('value',fname);
+                            document.getElementById("mname").setAttribute('value',mname);
+                            document.getElementById("lname").setAttribute('value',lname);
+                        </script>
+                        <label for="category">Select Quiz Category:</label><br>
+                        <select name="category" id="category" required>
+                                <option value="9">General Knowledge</option>
+                                <option value="21">Sports</option>
+                                <option value="23">History</option>
+                                <option value="28">Vehicles</option>
+                         </select><br><br>
+                         <button class = "options" id = 'submitChoice'>Submit</button>
+                    </form>  
                 </div>
                 <div id = "quizEntry" >
     
